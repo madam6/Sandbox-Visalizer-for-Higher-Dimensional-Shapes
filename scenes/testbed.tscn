@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://dtoix5noi4rno"]
+[gd_scene load_steps=3 format=3 uid="uid://dtoix5noi4rno"]
 
 [ext_resource type="Script" uid="uid://d2o5hvw4wajhr" path="res://scripts/math/MathTest.gd" id="1_lq1eq"]
+[ext_resource type="Script" uid="uid://dwchpsqnm116q" path="res://scripts/math/rotation/RotationInterfaceVerifier.gd" id="2_6nsdx"]
 
 [node name="Testbed" type="Node3D"]
 script = ExtResource("1_lq1eq")
+
+[node name="RotationInterfaceVerification" type="Node3D" parent="."]
+script = ExtResource("2_6nsdx")
