@@ -15,10 +15,14 @@ func project(shape: Array) -> Array:
 	var projected = []
 	
 	for point in shape:
-		var v_factor = 1.0 / (v_distance - point[4])
+		var div = v_distance - point[4]
+		if abs(div) < 0.0001: div = 0.0001 # Prevent crash
+		var v_factor = 1.0 / div
 		projected_4d_shape.append(Vector4(point[0] * v_factor, point[1] * v_factor, point[2] * v_factor, point[3] * v_factor))
 
 	for point in projected_4d_shape:
-		var w_factor = 1.0 / (w_distance - point.w)
+		var div = w_distance - point.w
+		if abs(div) < 0.0001: div = 0.0001 # Again to prevent crash
+		var w_factor = 1.0 / div
 		projected.append(Vector3(point.x * w_factor, point.y * w_factor, point.z * w_factor))
 	return projected

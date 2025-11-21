@@ -27,7 +27,7 @@ func create_shape() -> ShapeData:
 	data.edges = [
 		Vector2i(1, 2), Vector2i(2, 3), Vector2i(3, 4), Vector2i(4, 1),
 		Vector2i(0, 1), Vector2i(0, 2), Vector2i(0, 3), Vector2i(0, 4)
-	]
+	] as Array[Vector2i]
 	
 	data.faces = [
 		[1, 4, 3, 2], # Base (Quad)
@@ -35,6 +35,6 @@ func create_shape() -> ShapeData:
 		[0, 2, 3],    # Side Right
 		[0, 3, 4],    # Side Front
 		[0, 4, 1]     # Side Left
-	]
+	] as Array[Array]
 	
 	return data

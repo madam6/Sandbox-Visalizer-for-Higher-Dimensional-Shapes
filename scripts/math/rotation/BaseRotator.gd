@@ -1,7 +1,7 @@
 extends IRotator
 class_name BaseRotator
 
-static func _rotate_shape(shape: Array, angle: float, plane: Array):
+func _rotate_shape(shape: Array, angle: float, plane: Array):
 	assert(shape.size() > 0)
 	
 	var point = shape[0]
@@ -18,7 +18,7 @@ static func _rotate_shape(shape: Array, angle: float, plane: Array):
 		shape[i] = from_array_func.call(rotated)
 
 
-static func _get_dimension(point) -> int:
+func _get_dimension(point) -> int:
 	if typeof(point) == TYPE_VECTOR3:
 		return 3
 	elif typeof(point) == TYPE_VECTOR4:
@@ -30,7 +30,7 @@ static func _get_dimension(point) -> int:
 		return 0
 
 
-static func _get_to_array_func(dim: int) -> Callable:
+func _get_to_array_func(dim: int) -> Callable:
 	var funcs = {
 		3: func(v): return VectorHelper.convert_vec3_to_array(v),
 		4: func(v): return VectorHelper.convert_vec4_to_array(v),
@@ -38,8 +38,7 @@ static func _get_to_array_func(dim: int) -> Callable:
 	}
 	return funcs.get(dim)
 
-
-static func _get_from_array_func(dim: int) -> Callable:
+func _get_from_array_func(dim: int) -> Callable:
 	var funcs = {
 		3: func(a): return VectorHelper.convert_array_to_vector3(a),
 		4: func(a): return VectorHelper.convert_array_to_vector4(a),
@@ -47,12 +46,11 @@ static func _get_from_array_func(dim: int) -> Callable:
 	}
 	return funcs.get(dim)
 
-
-static func _perform_rotation(point: Array, rotation_matrix: Array) -> Array:
+func _perform_rotation(point: Array, rotation_matrix: Array) -> Array:
 	return MatrixHelper.multiply_matrix_vector(rotation_matrix, point)
 
 
-static func _get_rotation_matrix(dim: int, i: int, j: int, angle: float) -> Array:
+func _get_rotation_matrix(dim: int, i: int, j: int, angle: float) -> Array:
 	var mat = MatrixHelper.identity(dim)
 	mat[i][i] = cos(angle)
 	mat[j][j] = cos(angle)

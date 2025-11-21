@@ -2,7 +2,7 @@ extends BaseRotator
 
 class_name Rotator5D
 
-static var supported_planes = {
+var supported_planes = {
 	Enums.PLANES.XY: [0, 1],
 	Enums.PLANES.XZ: [0, 2],
 	Enums.PLANES.YZ: [1, 2],
@@ -15,7 +15,7 @@ static var supported_planes = {
 	Enums.PLANES.WV: [3, 4],
 }
 
-static func rotate(shape: Array, angle: float, plane: Enums.PLANES):
+func rotate(shape: Array, angle: float, plane: Enums.PLANES):
 	assert(shape[0].size() == 5, "Shape must consist of 5 dimensional arrays points.")
 	assert(plane in supported_planes, "Unsupported plane for 5D rotation.")
 	super._rotate_shape(shape, angle, supported_planes[plane])

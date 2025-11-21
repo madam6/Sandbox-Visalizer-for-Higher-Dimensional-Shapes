@@ -32,7 +32,7 @@ func create_shape() -> ShapeData:
 			Vector2i(0,1), Vector2i(1,2), Vector2i(2,3), Vector2i(3,0),
 			Vector2i(4,5), Vector2i(5,6), Vector2i(6,7), Vector2i(7,4),
 			Vector2i(0,4), Vector2i(1,5), Vector2i(2,6), Vector2i(3,7)
-		]
+		] as Array[Vector2i]
 		for e in local_edges:
 			data.edges.append(Vector2i(e.x + offset, e.y + offset))
 
@@ -62,7 +62,7 @@ func create_shape() -> ShapeData:
 		[0,1,9,8], [1,2,10,9], [2,3,11,10], [3,0,8,11],
 		[4,5,13,12], [5,6,14,13], [6,7,15,14], [7,4,12,15],
 		[0,4,12,8], [1,5,13,9], [2,6,14,10], [3,7,15,11]
-	]
+	] as Array[Array]
 	data.faces.append_array(connectors)
 
 	return data

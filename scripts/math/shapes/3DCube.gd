@@ -20,7 +20,7 @@ func create_shape() -> ShapeData:
 		Vector2i(0, 1), Vector2i(1, 2), Vector2i(2, 3), Vector2i(3, 0),
 		Vector2i(4, 5), Vector2i(5, 6), Vector2i(6, 7), Vector2i(7, 4),
 		Vector2i(0, 4), Vector2i(1, 5), Vector2i(2, 6), Vector2i(3, 7)
-	]
+	] as Array[Vector2i]
 	
 	
 	data.faces = [
@@ -30,6 +30,6 @@ func create_shape() -> ShapeData:
 		[1, 2, 6, 5], # Right
 		[3, 7, 6, 2], # Top
 		[0, 1, 5, 4]  # Bottom
-	]
+	] as Array[Array]
 	
 	return data
