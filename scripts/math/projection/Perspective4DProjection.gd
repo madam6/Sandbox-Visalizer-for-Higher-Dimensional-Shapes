@@ -6,9 +6,6 @@ class_name Perspective4DProjection
 # For cube it should be bigger than hypotenuse we would need to clamp this value for UI
 @export var w_distance := 30.0
 
-# This acts like a "Zoom"
-# Because we moved the camera far back (w_distance), the object looks tiny.
-# We multiply by this scale to make it look big again.
 @export var fov_scale := 1.0 
 
 func project(shape: Array) -> Array:
